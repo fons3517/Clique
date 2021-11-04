@@ -1,0 +1,14 @@
+<div class='comments'>
+  {{#each this}}
+    <section class='comment'>
+      <div class='meta uk-margin-top'>
+        {{user.username}}
+        on
+        {{created_at}}
+      </div>
+      <div class='text uk-card uk-margin-xsmall uk-card-default uk-card-body'>
+        {{comment_text}}
+      </div>
+    </section>
+  {{/each}}
+</div>

@@ -24,14 +24,20 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.3.4",
     "express-session": "^1.17.2",
+    "fs": "0.0.1-security",
     "handlebars": "^4.7.7",
     "mysql2": "^2.3.2",
     "nodemon": "^2.0.14",
     "sequelize": "^6.8.0",
-    "session": "^0.1.0"
+    "session": "^0.1.0",
+    "socket.io": "^4.3.1"
   },
   "devDependencies": {
     "eslint": "^8.1.0",
     "eslint-plugin-react": "^7.26.1"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.5",
+    "utf-8-validate": "^5.0.7"
   }
 }

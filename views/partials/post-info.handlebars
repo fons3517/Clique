@@ -1,0 +1,23 @@
+<article class='post'>
+  <div class='whole-post'>
+    <div class='info-section'>
+      <div class='post-name'>
+        <a
+          href='/post/{{id}}'
+          class='links uk-text-lead uk-link-heading'
+        >{{title}}</a>
+      </div>
+      <div class='created-by'>
+        <p id='comment-subtitle'>
+          Posted by
+          <b>{{user.username}} </b>
+          on
+          <b>{{formatDate created_at}}</b>
+        </p>
+      </div>
+    </div>
+    <div class='content-section'>
+      <p>{{post_text}}</p>
+    </div>
+  </div>
+</article>

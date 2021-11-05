@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 // The Socket Instance
 // Socket#id
@@ -84,3 +85,35 @@ io.on('connection', (socket) => {
 const sockets = io.fetchSockets();
 console.log(sockets[0].data.username); // "alice"
 
+
+// Socket middlewares
+//Those middlewares looks a lot like the usual middlewares, except that they are called for each incoming packet:
+// eslint-disable-next-line no-unused-vars
+socket.use(([event, ...args], next) => {
+  // do something with the packet (logging, authorization, rate limiting...)
+  // do not forget to call next() at the end
+  next();
+});
+
+
+
+//disconnect
+// This event is fired by the Socket instance upon disconnection.
+io.on('connection', (socket) => {
+  socket.on('disconnect', (reason) => {
+    // ...
+  });
+});
+
+
+// disconnecting
+// this event is similar to disconnect but is fired a bit earlier, when the Socket#rooms set is not empty yet
+io.on('connection', (socket) => {
+  socket.on('disconnecting', (reason) => {
+    for (const room of socket.rooms) {
+      if (room !== socket.id) {
+        socket.to(room).emit('user has left', socket.id);
+      }
+    }
+  });
+});

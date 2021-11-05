@@ -4,19 +4,19 @@
 // Each new connection is assigned a random 20-characters id, which is then synced with the value on the client-side.
 
 // server-side
-io.on("connection", (socket) => {
+io.on('connection', (socket) => {
   console.log(socket.id); // ojIckSD2jqNzOqIrAGzL
 });
 
 // client-side
-socket.on("connect", () => {
+socket.on('connect', () => {
   console.log(socket.id); // ojIckSD2jqNzOqIrAGzL
 });
 
 // Upon creation, the Socket joins the room identified by its own id, which means you can use it for private messaging:
-io.on("connection", socket => {
-  socket.on("private message", (anotherSocketId, msg) => {
-    socket.to(anotherSocketId).emit("private message", socket.id, msg);
+io.on('connection', socket => {
+  socket.on('private message', (anotherSocketId, msg) => {
+    socket.to(anotherSocketId).emit('private message', socket.id, msg);
   });
 });
 // Note: you can't overwrite this identifier, as it is used in several parts of the Socket.IO codebase.
@@ -65,9 +65,9 @@ io.on("connection", socket => {
 // Socket#rooms#
 // This is a reference to the rooms the Socket is currently in.
 
-io.on("connection", (socket) => {
+io.on('connection', (socket) => {
   console.log(socket.rooms); // Set { <socket.id> }
-  socket.join("room1");
+  socket.join('room1');
   console.log(socket.rooms); // Set { <socket.id>, "room1" }
 });
 
@@ -76,11 +76,11 @@ io.on("connection", (socket) => {
 // Socket#data
 // An arbitrary obj that can be used in conjunction with the fetchSockets() utility method
 // server A
-io.on("connection", (socket) => {
-  socket.data.username = "alice";
+io.on('connection', (socket) => {
+  socket.data.username = 'alice';
 });
 
 // server B
-const sockets = await io.fetchSockets();
+const sockets = io.fetchSockets();
 console.log(sockets[0].data.username); // "alice"
 

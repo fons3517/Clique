@@ -3,6 +3,7 @@
 //Each file registers its own event handlers
 const httpServer = require("http").createServer();
 const io = require("socket.io")(httpServer);
+const { Server } = require('/models/Server.js');
 
 const registerOrderHandlers = require("./orderHandler");
 const registerUserHandlers = require("./userHandler");
@@ -16,8 +17,8 @@ io.on("connection", onConnection);
 
 
 // Here, each event name is located in the same place, which is great for discoverability, but could get out of hand in a medium/big application.
-const httpServer = require("http").createServer();
-const io = require("socket.io")(httpServer);
+// const httpServer = require("http").createServer();
+// const io = require("socket.io")(httpServer);
 
 const { createOrder, readOrder } = require("./orderHandler")(io);
 const { updatePassword } = require("./userHandler")(io);
@@ -32,7 +33,7 @@ const onConnection = (socket) => {
 io.on("connection", onConnection);
 
 
-// bundlers
+// Bundlers(server-side)
 const { Server } = require("socket.io");
 
 const io = new Server({
@@ -48,4 +49,33 @@ io.on("connection", socket => {
 });
 
 io.listen(3000);
+
+
+// Bundlers(client-side)
+module.exports = {
+  entry: "./index.js",
+  output: {
+    filename: "bundle.js",
+  },
+  mode: "production",
+  node: false,
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"], // ensure compatibility with older browsers
+            plugins: ["@babel/plugin-transform-object-assign"], // ensure compatibility with IE 11
+          },
+        },
+      },
+      {
+        test: /\.js$/,
+        loader: "webpack-remove-debug", // remove "debug" package
+      },
+    ],
+  },
+};
 

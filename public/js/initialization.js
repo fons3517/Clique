@@ -26,7 +26,5 @@ httpServer.listen(3000);
 
 
 // Client Initialization
-//<script src="/socket.io/socket.io.js"></script>
-
 const { io } = require("socket.io-client");
 const socket = io();

@@ -1,19 +1,18 @@
 /* eslint-disable quotes */
 // Registering event handlers
 //Each file registers its own event handlers
-const httpServer = require("http").createServer();
-const io = require("socket.io")(httpServer);
+const httpServer = require('http').createServer();
 const { Server } = require('/models/Server.js');
 
-const registerOrderHandlers = require("./orderHandler");
-const registerUserHandlers = require("./userHandler");
+const registerOrderHandlers = require('./orderHandler');
+const registerUserHandlers = require('./userHandler');
 
 const onConnection = (socket) => {
   registerOrderHandlers(io, socket);
   registerUserHandlers(io, socket);
 };
 
-io.on("connection", onConnection);
+io.on('connection', onConnection);
 
 
 // Here, each event name is located in the same place, which is great for discoverability, but could get out of hand in a medium/big application.

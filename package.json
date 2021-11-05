@@ -1,9 +1,6 @@
 {
   "name": "project2",
   "version": "1.0.0",
-  "engines": {
-    "node": "14.x"
-  },
   "description": "Full stack web application building on both front and back end development.",
   "main": "index.js",
   "scripts": {

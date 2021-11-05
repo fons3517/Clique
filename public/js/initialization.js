@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Initialization
 
 // Requiring libraries including socket.io
@@ -19,3 +20,7 @@ io.on('connection', (socket) => {
 });
 
 httpServer.listen(3000);
+
+
+//Socket middlewares#
+

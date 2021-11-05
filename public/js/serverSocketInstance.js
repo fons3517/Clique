@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-// The Socket Instance
+// The Socket Instance (server-side)
 // Socket#id
 // Each new connection is assigned a random 20-characters id, which is then synced with the value on the client-side.
 
@@ -13,6 +13,22 @@ io.on('connection', (socket) => {
 socket.on('connect', () => {
   console.log(socket.id); // ojIckSD2jqNzOqIrAGzL
 });
+
+socket.on('disconnect', () => {
+  console.log(socket.id); // undefined
+});
+
+// Socket#connected
+// This attribute describes whether the socket is currrently connected to the server.
+socket.on('connect', () => {
+  console.log(socket.connected); // true
+});
+
+socket.on('disconnect', () => {
+  console.log(socket.connected); // false
+});
+
+
 
 // Upon creation, the Socket joins the room identified by its own id, which means you can use it for private messaging:
 io.on('connection', socket => {

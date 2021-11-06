@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
-// Initialization
+
+
+// Server Initialization
 
 // Requiring libraries including socket.io
 const { readFileSync } = require('fs');
 const { createServer } = require('https');
-const { Server } = require('socket.io');
+const { Server } = require('socket.io'); // Server is a model class
 
 // Create Server
 const httpServer = createServer({
@@ -22,5 +24,7 @@ io.on('connection', (socket) => {
 httpServer.listen(3000);
 
 
-//Socket middlewares#
 
+// Client Initialization
+const { io } = require("socket.io-client");
+const socket = io();

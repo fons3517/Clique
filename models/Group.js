@@ -19,20 +19,13 @@ Group.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post',
+    modelName: 'group',
   }
 );
 
-module.exports = Post;
+module.exports = Group;

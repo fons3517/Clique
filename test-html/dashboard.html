@@ -140,8 +140,26 @@
         </div>
 
         <!--CHATBOX SECTION-->
-        <div class="uk-card uk-card-default uk-card-body chat-box">
-          <div class="chat-popup" id="myForm"></div>
+        <div class="uk-card uk-card-default chat-box">
+          <div class="chat-container">
+            <header class="chat-header">
+              <h1>Room</h1>
+            </header>
+            <div class="chat-messages"></div>
+
+            <div class="chat-form-container">
+              <form id="chat-form">
+                <div class="uk-margin uk-text-center">
+                  <input
+                    class="uk-input uk-form-width-medium"
+                    type="text"
+                    placeholder="Input"
+                  />
+                  <button class="uk-button uk-button-default">Send</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>

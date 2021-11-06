@@ -1,18 +1,7 @@
-window.addEventListener('DOMContentLoaded', (event) => {
-  const sidebarToggle = document.body.querySelector('#sidebarToggle');
-  if (sidebarToggle) {
-    sidebarToggle.addEventListener('click', (event) => {
-      event.preventDefault();
-      document.body.classList.toggle('sb-sidenav-toggled');
-      localStorage.setItem(
-        'sb|sidebar-toggle',
-        document.body.classList.contains('sb-sidenav-toggled')
-      );
-    });
-  }
+document.getElementById('close-button').addEventListener('click', function () {
+  document.getElementById('chat-hide').style.visibility = 'hidden';
 });
 
-$('.chat-input input').keyup(function (e) {
-  if ($(this).val() == '') $(this).removeAttr('good');
-  else $(this).attr('good', '');
+document.getElementById('show-chat').addEventListener('click', function () {
+  document.getElementById('chat-hide').style.visibility = 'visible';
 });

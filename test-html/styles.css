@@ -28,14 +28,37 @@
 
 .chat-container {
   position: fixed;
-  width: 400px;
-  height: 100%;
+  padding-bottom: 0;
+  z-index: 1;
+  position: fixed;
   bottom: 0;
   right: 0;
-  padding-top: 600px;
-  overflow: hidden;
 }
 
-.chat-form-container {
-  padding-top: 800px;
+.chat-box {
+  overflow-y: scroll;
+  max-height: 400px;
+}
+
+.chat-messages {
+  height: 75%;
+}
+
+.chat-user {
+  font-size: 20px;
+}
+
+.chat-top {
+  margin: 2%;
+}
+
+.chat-top-padding {
+  padding: 5px;
+  border-radius: 5px 5px 0 0;
+}
+
+.show-chat {
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }

@@ -7,17 +7,6 @@
   font-size: 80px;
 }
 
-.side-nav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  overflow-x: hidden;
-  padding-top: 130px;
-}
-
 .uk-navbar-right {
   margin-right: 100px;
 }
@@ -61,4 +50,15 @@
   position: fixed;
   bottom: 0;
   right: 0;
+}
+
+.side-nav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 130px;
 }

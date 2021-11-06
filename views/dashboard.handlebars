@@ -1,8 +1,4 @@
-<button
-    type='submit'
-    class='btn uk-button uk-button-primary uk-margin-bottom'
-    id='create-new-post'
-  >+ Create new post</button>
+
 
 {{#if posts.length}}
   <section>
@@ -26,10 +22,10 @@
 {{/if}}
 
 <script src='/js/create-post.js'></script>
+<link rel="stylesheet" href="../public/css/styles.css"/>
 
-<div>
-      <!--SIDENAV SECTION-->
-      <div
+
+<div
         class="
           uk-card
           uk-box-shadow-hover-small
@@ -82,56 +78,8 @@
           </li>
         </ul>
       </div>
-      <!--POSTS SECTION-->
-      <div class="main">
-        <div>
-          <h1 class="uk-heading-line uk-margin-top"><span>Posts</span></h1>
-          <div>
-            <div class="uk-card uk-margin uk-margin-bottom uk-card-body">
-              <h3 class="uk-card-title">Post 1</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <button class="uk-button uk-button-primary">Comment</button>
-            </div>
-          </div>
-          <div>
-            <div
-              class="
-                uk-card uk-margin uk-margin-bottom uk-card-primary uk-card-body
-              "
-            >
-              <h3 class="uk-card-title">Post 2</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <button class="uk-button uk-button-primary">Comment</button>
-            </div>
-          </div>
-          <div>
-            <div
-              class="
-                uk-card uk-margin uk-margin-bottom uk-card-default uk-card-body
-              "
-            >
-              <h3 class="uk-card-title">Post 3</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <button class="uk-button uk-button-primary">Comment</button>
-            </div>
-          </div>
-          <div>
-            <div
-              class="
-                uk-card uk-margin uk-margin-bottom uk-card-default uk-card-body
-              "
-            >
-              <h3 class="uk-card-title">Post 4</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <button class="uk-button uk-button-primary">Comment</button>
-            </div>
-          </div>
-        </div>
 
         <!--CHATBOX SECTION-->
-        <div class="uk-card uk-card-default uk-card-body chat-box">
-          <div class="chat-popup" id="myForm"></div>
-        </div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.8.0/dist/js/uikit.min.js"></script>

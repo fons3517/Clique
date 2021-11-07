@@ -2,13 +2,13 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, Post, Comment } = require('../models');
 
-router.get('/', async(req, res) => {
-  
+router.get('/', async (req, res) => {
+
   await req.session.loggedIn;
 
   res.render('splash', {
-      loggedIn: req.session.loggedIn,
-    });
+    loggedIn: req.session.loggedIn,
+  });
 });
 
 router.get('/home', (req, res) => {

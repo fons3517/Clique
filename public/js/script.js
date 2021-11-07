@@ -28,8 +28,8 @@ form.addEventListener('submit', e => {
 
   const message = messageInput.value;
   const room = roomInput.value;
-  if (message === '') {
-    return displayMessage(message);
+  if (message === '') return; {
+    displayMessage(message);
     socket.emit('send message', message, room);
   };
   messageInput.value = '';

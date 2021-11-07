@@ -8,6 +8,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const helpers = require('./utils/helpers');
 const socketio = require('socket.io');
 const http = require('http');
+const { createBrotliCompress } = require('zlib');
 
 require('dotenv').config();
 
@@ -15,10 +16,6 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 const PORT = process.env.PORT || 3001;
-
-io.on('connection', (socket) => {
-  console.log('new WS Connection');
-});
 
 //setup session
 const sess = {
@@ -48,3 +45,14 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
 });
+
+io.on('connection', socket => {
+  console.log('New Socket Connection. ID: ' + socket.id);
+  socket.on("send-message" , (message, room) => {
+    socket.to(room).emit('recieve-message', message)
+  });
+  socket.on('join-room', room => {
+    socket.join(room);   //<============ May want to add authentication/check if user is in group
+  });
+});
+

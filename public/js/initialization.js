@@ -1,30 +1,38 @@
 /* eslint-disable no-unused-vars */
 
 
-// Server Initialization
 
-// Requiring libraries including socket.io
+
+// Setup through
+const express = require('express');
+const https = require('https');
+const app = express();
+
+// Initialization from documentation
 const { readFileSync } = require('fs');
 const { createServer } = require('https');
 const { Server } = require('socket.io'); // Server is a model class
 
-// Create Server
-const httpServer = createServer({
-  key: readFileSync('/path/to/my/key.pem'),
-  cert: readFileSync('/path/to/my/cert.pem')
+
+app.get('/', function (req, res) {
+  res.send('hello world');
 });
-// Assigning io to the new Server instance
-const io = new Server(httpServer, { /* options */ });
+
+// Create Server
+https.createServer({
+  key: fs.readFileSync('server.key'),
+  cert: fs.readFileSync('server.cert')
+}, app)
+  .listen(3000, function () {
+    console.log('Example app listening on port 3001! Go to https://localhost:3001/')
+  });
+
+
+
 
 // This event is fired upon a new connection. The first arg is a Socket instance.
 io.on('connection', (socket) => {
   // ...
 });
 
-httpServer.listen(3000);
-
-
-
-// Client Initialization
-const { io } = require("socket.io-client");
-const socket = io();
+httpServer.listen(3001);

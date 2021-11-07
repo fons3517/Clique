@@ -4,12 +4,15 @@ const joinRoomButton = document.getElementById('joinRoomButton');
 const messageInput = document.getElementById('messageInput');
 const roomInput = document.getElementById('roomInput');
 const form = document.getElementById('form');
-module.import { io } 'socket.io-client';
+const input = document.getElementById('input');
+module.import = { io } 'socket.io-client';
 
-const socket = io('http://localhost:3001')   // No authentication needed on regular namespace here
+const socket = io('http://localhost:3001');   // No authentication needed on regular namespace here
+
 const userSocket = io('http://localhost:3001/user', {
   auth: { token: 'Test' }    // Authorization required for this specific namespace
 });
+
 socket.on('connect', () => {
   displayMessage(`You connected with id: ${socket.id}`)
 });
@@ -25,15 +28,21 @@ socket.on('receive-message', message => {
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-
   const message = messageInput.value;
   const room = roomInput.value;
-  if (message === '') return; {
+  if (input.value) {
     displayMessage(message);
     socket.emit('send message', message, room);
+    messageInput.value = '';
   };
-  messageInput.value = '';
 });
+
+// socket.on('chat message', function (msg) {
+//   var item = document.createElement('li');
+//   item.textContent = msg;
+//   messages.appendChild(item);
+//   window.scrollTo(0, document.body.scrollHeight);
+// });
 
 joinRoomButton.addEventListener('click', () => {
   const room = roomInput.value;

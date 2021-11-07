@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Group extends Model {}
+class Group extends Model { }
 
 Group.init(
   {
@@ -35,4 +35,4 @@ Group.init(
   }
 );
 
-module.exports = Post;
+module.exports = Group;

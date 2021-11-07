@@ -1,9 +1,9 @@
 // Client-side script
 
-const joinRoomButton = document.getElementById();
-const messageInput = document.getElementById();
-const roomInput = document.getElementById();
-const form = document.getElementById();
+const joinRoomButton = document.getElementById('joinRoomButton');
+const messageInput = document.getElementById('messageInput');
+const roomInput = document.getElementById('roomInput');
+const form = document.getElementById('form');
 module.import { io } 'socket.io-client';
 
 const socket = io('http://localhost:3001')   // No authentication needed on regular namespace here

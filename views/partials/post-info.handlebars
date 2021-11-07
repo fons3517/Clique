@@ -21,3 +21,28 @@
     </div>
   </div>
 </article>
+
+                  {{#each msg as |msg|}}
+                  {{>postmsg msg}}
+                  {{/each}}
+
+                  {{#if posts.length}}
+  <section>
+    <legend class='uk-legend uk-margin-top'>Dashboard</legend>
+
+    <ul class='post-list uk-list'>
+      {{#each posts as |post|}}
+        <li class='uk-card uk-card-body uk-card-default'>
+          {{> post-info post}}
+          <a
+            href='/dashboard/edit/{{post.id}}'
+            class='edit-link uk-button uk-button-danger'
+          >edit post</a>
+        </li>
+
+
+
+      {{/each}}
+    </ul>
+  </section>
+{{/if}}

@@ -1,20 +1,22 @@
-
+<button
+  type='submit'
+  class='btn uk-button uk-button-primary uk-margin-bottom'
+  id='create-new-post'
+>+ Create new post</button>
 
 {{#if posts.length}}
   <section>
-    <legend class='uk-legend uk-margin'>Dashboard</legend>
+    <legend class='uk-legend uk-margin-top'>Dashboard</legend>
 
     <ul class='post-list uk-list'>
       {{#each posts as |post|}}
         <li class='uk-card uk-card-body uk-card-default'>
-          {{> post-info post}}
+          {{>post-info post}}
           <a
             href='/dashboard/edit/{{post.id}}'
             class='edit-link uk-button uk-button-danger'
           >edit post</a>
         </li>
-
-
 
       {{/each}}
     </ul>
@@ -22,65 +24,159 @@
 {{/if}}
 
 <script src='/js/create-post.js'></script>
-<link rel="stylesheet" href="../public/css/styles.css"/>
-
 
 <div
-        class="
-          uk-card
-          uk-box-shadow-hover-small
-          uk-light
-          uk-background-secondary
-          uk-padding
-          uk-card-body
-          uk-width-1-6@s
-          side-nav
-        "
-      >
-        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
-          <li class="uk-active"><a href="#">Active</a></li>
-          <li class="uk-parent">
-            <a href="#">Parent</a>
-            <ul class="uk-nav-sub">
-              <li><a href="#">Sub item</a></li>
-              <li><a href="#">Sub item</a></li>
-            </ul>
-          </li>
-          <li class="uk-parent">
-            <a href="#">Parent</a>
-            <ul class="uk-nav-sub">
-              <li><a href="#">Sub item</a></li>
-              <li><a href="#">Sub item</a></li>
-            </ul>
-          </li>
-          <li class="uk-nav-header">Header</li>
-          <li>
-            <a href="#"
-              ><span class="uk-margin-small-right" uk-icon="icon: table"></span>
-              Item</a
+  class='uk-card uk-box-shadow-hover-small uk-light uk-background-secondary uk-padding uk-card-body uk-width-1-6@s side-nav'
+>
+  <ul class='uk-nav-default uk-nav-parent-icon' uk-nav>
+    <li class='uk-active'><a href='#'>Active</a></li>
+    <li class='uk-parent'>
+      <a href='#'>Groups</a>
+      <ul class='uk-nav-sub'>
+        <li><a href='#'>Group 1</a></li>
+        <li><a href='#'>Group 2</a></li>
+      </ul>
+    </li>
+    <li class='uk-parent'>
+      <a href='#'>Posts</a>
+      <ul class='uk-nav-sub'>
+        <li><a href='#'>Sub item</a></li>
+        <li><a href='#'>Sub item</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href='#'><span
+          class='uk-margin-small-right'
+          uk-icon='icon: thumbnails'
+        ></span>
+        Item</a>
+    </li>
+    <li class='uk-nav-divider'></li>
+    <li>
+      <a href='#'><span
+          type='submit'
+          class='uk-margin-small-right'
+          uk-icon='icon: trash'
+        ></span>
+        Item</a>
+    </li>
+  </ul>
+</div>
+
+<!--CHATBOX SECTION-->
+<div class='uk-section chat-container uk-margin-remove' id='chat-hide'>
+  <div class='uk-width-large'>
+    <div class='uk-card uk-card-default uk-border-rounded uk-margin-large-top'>
+      <div class='uk-card-secondary chat-top-padding'>
+        <p class='uk-margin-left chat-top uk-margin-top'>Room Name</p>
+        <p class='uk-margin-left chat-top uk-margin-bottom'>USERNAME</p>
+      </div>
+      <div class='uk-card-body uk-padding-small chat-box'>
+        <div class='guest uk-grid-small uk-flex-bottom uk-flex-left' uk-grid>
+        </div>
+
+        <div>
+          {{#each msg as |msg|}}
+            {{>post-msg msg}}
+          {{/each}}
+        </div>
+
+        <div
+          class='me uk-grid-small uk-flex-bottom uk-flex-right uk-text-right'
+          uk-grid
+        >
+          <div class='uk-width-auto'>
+            <div
+              class='uk-card uk-card-body uk-card-small uk-card-primary uk-border-rounded'
             >
-          </li>
-          <li>
-            <a href="#"
-              ><span
-                class="uk-margin-small-right"
-                uk-icon="icon: thumbnails"
-              ></span>
-              Item</a
+              <p class='uk-margin-remove'>suh dude</p>
+              <p class='uk-margin-remove'>chillin?</p>
+            </div>
+          </div>
+          <div class='uk-width-auto'>
+            <img
+              class='uk-border-circle'
+              width='32'
+              height='32'
+              src='./jager.jpg'
+            />
+          </div>
+        </div>
+        <div>
+          <p class='uk-text-italic uk-text-right'>Jager | 2:22pm</p>
+        </div>
+
+        <div class='guest uk-grid-small uk-flex-bottom uk-flex-left' uk-grid>
+          <div class='uk-width-auto'>
+            <img
+              class='uk-border-circle'
+              width='32'
+              height='32'
+              src='.'
+              michael.png
+            />
+          </div>
+          <div class='uk-width-auto'>
+            <div
+              class='uk-card uk-card-body uk-card-small uk-card-default uk-border-rounded'
             >
-          </li>
-          <li class="uk-nav-divider"></li>
-          <li>
-            <a href="#"
-              ><span class="uk-margin-small-right" uk-icon="icon: trash"></span>
-              Item</a
-            >
-          </li>
-        </ul>
+              <p class='uk-margin-remove'>
+                <span class='etc'>ye dawg</span>
+              </p>
+            </div>
+          </div>
+          <div>
+            <p class='uk-text-italic uk-text-left'>Jager | 2:22pm</p>
+          </div>
+        </div>
       </div>
 
-        <!--CHATBOX SECTION-->
+      <div class='uk-card-footer uk-padding-remove'>
+        <div class='uk-grid-small uk-flex-middle' uk-grid>
+          <div class='uk-width-auto'>
+            <a
+              href='#'
+              class='uk-icon-link uk-margin-small-left'
+              id='close-button'
+              uk-icon='icon: close'
+            ></a>
+          </div>
+          <div class='uk-width-expand'>
+            <div class='uk-padding-small uk-padding-remove-horizontal'>
+              <input
+                class='uk-input uk-padding-remove uk-border-remove'
+                rows='1'
+                placeholder='Type message...'
+              />
+            </div>
+          </div>
+          <div class='uk-width-auto'>
+            <ul class='uk-iconnav uk-margin-small-right'>
+              <li>
+                <a href='#' uk-icon='icon: reply'></a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.8.0/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.8.0/dist/js/uikit-icons.min.js"></script>
+  </div>
+</div>
+
+<div>
+  <div>
+    <div class='show-chat'>
+      <button id='show-chat' class='uk-button uk-button-primary'>
+        OPEN CHAT
+      </button>
+    </div>
+  </div>
+</div>
+<script
+  src='https://cdn.jsdelivr.net/npm/uikit@3.8.0/dist/js/uikit.min.js'
+></script>
+<script
+  src='https://cdn.jsdelivr.net/npm/uikit@3.8.0/dist/js/uikit-icons.min.js'
+></script>
+<script src='/js/closechat.js'></script>

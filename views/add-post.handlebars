@@ -1,12 +1,7 @@
-<a href='/dashboard' class='go-back uk-button uk-button-primary'>
-  &larr; Back to dashboard</a>
-<br />
-<br />
-
 <article class='new-page'>
-  <section class='new-form-page'>
+  <section class='new-form-page uk-container'>
     <div class='form-heading uk-margin'>
-      <legend class='uk-legend uk-margin-top'>Sign Up</legend>
+      <legend class='uk-legend uk-margin-top'>Create Your Post</legend>
     </div>
     <div class='form-section'>
       <form class='new-post-form uk-form-stacked'>
@@ -15,7 +10,12 @@
             for='post-title form-stacked-text'
             class='uk-form-label'
           >Title</label>
-          <input type='text' id='post-title' name='post-title' />
+          <input
+            class='uk-input'
+            type='text'
+            id='post-title'
+            name='post-title'
+          />
         </div>
         <div class='post-content uk-margin'>
           <label
@@ -23,7 +23,7 @@
             class='uk-form-label'
           >Content</label>
           <textarea
-            class='entry-field'
+            class='entry-field uk-textarea'
             id='post-text'
             name='post-text'
           ></textarea>
@@ -32,6 +32,8 @@
           type='submit'
           class='btn uk-button uk-button-default'
         >Create</button>
+        <a href='/dashboard' class='go-back uk-button uk-button-primary'>
+          &larr; Back to dashboard</a>
       </form>
     </div>
   </section>

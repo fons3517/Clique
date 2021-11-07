@@ -1,0 +1,60 @@
+#landing-title {
+  font-family: sans-serif;
+  font-size: 80px;
+}
+
+.chat-container {
+  position: fixed;
+  padding-bottom: 0;
+  z-index: 1;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.chat-box {
+  overflow-y: scroll;
+  max-height: 400px;
+}
+
+.chat-messages {
+  height: 75%;
+}
+
+.chat-user {
+  font-size: 20px;
+}
+
+.chat-top {
+  margin: 2%;
+}
+
+.chat-top-padding {
+  padding: 5px;
+  border-radius: 5px 5px 0 0;
+}
+
+.show-chat {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding-bottom: 20px;
+}
+
+.side-nav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 130px;
+}
+
+#create-new-post {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-left: 200px;
+}

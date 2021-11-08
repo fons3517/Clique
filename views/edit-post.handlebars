@@ -1,10 +1,5 @@
-<a href='/dashboard' class='go-back uk-button uk-button-primary'>
-  &larr; Back to dashboard</a>
-<br />
-<br />
-
 <article class='new-page'>
-  <section class='edit-form-page'>
+  <section class='edit-form-page uk-container'>
     <div class='form-heading uk-margin'>
       <legend class='uk-legend uk-margin-top'>Edit Post</legend>
     </div>
@@ -16,6 +11,7 @@
             class='uk-form-label'
           >Title</label>
           <input
+            class='uk-input'
             type='text'
             name='post-title'
             id='post-title'
@@ -28,7 +24,7 @@
             class='uk-form-label'
           >Content</label>
           <textarea
-            class='entry-field'
+            class='entry-field uk-textarea'
             id='post-text'
             name='post-text'
           >{{post.post_text}}</textarea>
@@ -39,6 +35,8 @@
           type='button'
           class='delete-post-btn btn uk-button uk-button-danger'
         >Delete post</button>
+        <a href='/dashboard' class='go-back uk-button uk-button-primary'>
+          &larr; Back to dashboard</a>
       </form>
     </div>
   </section>

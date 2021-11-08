@@ -5,7 +5,7 @@
 >+ Create new post</button>
 
 {{#if posts.length}}
-  <section>
+  <section class='post-margin'>
     <legend class='uk-legend uk-margin-top'>Dashboard</legend>
 
     <ul class='post-list uk-list'>
@@ -29,28 +29,29 @@
   class='uk-card uk-box-shadow-hover-small uk-light uk-background-secondary uk-padding uk-card-body uk-width-1-6@s side-nav'
 >
   <ul class='uk-nav-default uk-nav-parent-icon' uk-nav>
-    <li class='uk-active'><a href='#'>Active</a></li>
+    <li class='uk-active'><a href='#'>?This Group?</a></li>
     <li class='uk-parent'>
-      <a href='#'>Groups</a>
+      <a href='#'>My Groups</a>
       <ul class='uk-nav-sub'>
         <li><a href='#'>Group 1</a></li>
         <li><a href='#'>Group 2</a></li>
-      </ul>
-    </li>
-    <li class='uk-parent'>
-      <a href='#'>Posts</a>
-      <ul class='uk-nav-sub'>
-        <li><a href='#'>Sub item</a></li>
-        <li><a href='#'>Sub item</a></li>
       </ul>
     </li>
 
     <li>
       <a href='#'><span
           class='uk-margin-small-right'
-          uk-icon='icon: thumbnails'
+          uk-icon='icon: mail'
         ></span>
-        Item</a>
+        My Posts</a>
+    </li>
+    <li class='uk-nav-divider'></li>
+    <li>
+      <a href='#'><span
+          class='uk-margin-small-right'
+          uk-icon='icon: plus'
+        ></span>
+        Create Group</a>
     </li>
     <li class='uk-nav-divider'></li>
     <li>
@@ -69,17 +70,14 @@
   <div class='uk-width-large'>
     <div class='uk-card uk-card-default uk-border-rounded uk-margin-large-top'>
       <div class='uk-card-secondary chat-top-padding'>
-        <p class='uk-margin-left chat-top uk-margin-top'>Room Name</p>
-        <p class='uk-margin-left chat-top uk-margin-bottom'>USERNAME</p>
+        <p class='uk-margin-left chat-top uk-margin-top'>Group Name Chat</p>
       </div>
       <div class='uk-card-body uk-padding-small chat-box'>
         <div class='guest uk-grid-small uk-flex-bottom uk-flex-left' uk-grid>
         </div>
 
         <div>
-          {{#each msg as |msg|}}
-            {{>post-msg msg}}
-          {{/each}}
+          <!--SOCKET IO MESSAGES GO HERE -->
         </div>
 
         <div
@@ -95,12 +93,6 @@
             </div>
           </div>
           <div class='uk-width-auto'>
-            <img
-              class='uk-border-circle'
-              width='32'
-              height='32'
-              src='./jager.jpg'
-            />
           </div>
         </div>
         <div>
@@ -109,13 +101,6 @@
 
         <div class='guest uk-grid-small uk-flex-bottom uk-flex-left' uk-grid>
           <div class='uk-width-auto'>
-            <img
-              class='uk-border-circle'
-              width='32'
-              height='32'
-              src='.'
-              michael.png
-            />
           </div>
           <div class='uk-width-auto'>
             <div
@@ -127,7 +112,7 @@
             </div>
           </div>
           <div>
-            <p class='uk-text-italic uk-text-left'>Jager | 2:22pm</p>
+            <p class='uk-text-italic uk-text-left'>Michael | 2:22pm</p>
           </div>
         </div>
       </div>

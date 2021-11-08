@@ -11,29 +11,31 @@
     <title>Clique</title>
   </head>
   <body>
-    <nav class='uk-navbar-container' uk-sticky uk-navbar>
-      <div class='uk-navbar-right'>
-        <ul class='uk-navbar-nav'>
-          <li class='uk-active'><a href='#'>Home</a></li>
-          <li>
-            <a href='/dashboard'>Dashboard</a>
-            <div class='uk-navbar-dropdown'>
-              <ul class='uk-nav uk-navbar-dropdown-nav'>
-                <li class='uk-active'><a href='#'>Groups</a></li>
-                <li><a href='#'>Posts</a></li>
-                <li><a href='#'>Comments</a></li>
-              </ul>
-            </div>
-          </li>
-          <li><a href='#'>Explore</a></li>
-        </ul>
-      </div>
-    </nav>
-    <main>
-      <div>{{{body}}}</div>
-    </main>
-    {{#if loggedIn}}
-      <script src='/js/logout.js'></script>
-    {{/if}}
+    <div class='bg'>
+      <nav class='uk-navbar-container' uk-sticky uk-navbar>
+        <div class='uk-navbar-right'>
+          <ul class='uk-navbar-nav'>
+            <li class='uk-active'><a href='#'>Home</a></li>
+            <li>
+              <a href='/dashboard'>Dashboard</a>
+              <div class='uk-navbar-dropdown'>
+                <ul class='uk-nav uk-navbar-dropdown-nav'>
+                  <li class='uk-active'><a href='#'>Groups</a></li>
+                  <li><a href='#'>Posts</a></li>
+                  <li><a href='#'>Comments</a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href='#'>Explore</a></li>
+          </ul>
+        </div>
+      </nav>
+      <main>
+        <div>{{{body}}}</div>
+      </main>
+      {{#if loggedIn}}
+        <script src='/js/logout.js'></script>
+      {{/if}}
+    </div>
   </body>
 </html>

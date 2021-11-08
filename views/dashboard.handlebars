@@ -11,7 +11,7 @@
     <ul class='post-list uk-list'>
       {{#each posts as |post|}}
         <li class='uk-card uk-card-body uk-card-secondary'>
-          {{post-info post}}
+          {{>post-info post}}
           <a
             href='/dashboard/edit/{{post.id}}'
             class='edit-link uk-button uk-button-danger'

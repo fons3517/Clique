@@ -27,6 +27,9 @@
               </div>
             </li>
             <li><a href='/explore'>Explore</a></li>
+            {{#if loggedIn}}
+              <li><a id='logout'>logout</a></li>
+            {{/if}}
           </ul>
         </div>
       </nav>

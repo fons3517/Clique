@@ -2,39 +2,19 @@ const router = require('express').Router();
 const { Group, User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all posts
+/* get a group
 router.get('/:id', withAuth, (req, res) => {
-  Group.findbyPk(req.params.id, {
+  Group.findByPk(req.params.id, {
     attributes: ['id', 'name', 'description'],
     include: [
       {
         model: Post,
         attributes: ['title', 'post_text', 'user_id', 'created_at'],
-        include: {
-          model: Comment,
-          attributes: [
-            'id',
-            'comment_text',
-            'post_id',
-            'user_id',
-            'created_at',
-          ],
-          include: {
-            model: User,
-            attributes: ['username'],
-          },
-        },
-      },
-      {
-        model: User,
-        attributes: ['id', 'username'],
-      },
+      }
     ],
-  })
-    .then((dbGroupData) => {
+  }).then((dbGroupData) => {
       //serialize the data before passing to the template
       const group = dbGroupData.get({ plain: true });
-      console.log(group);
       res.render('group', { group, loggedIn: true });
     })
     .catch((err) => {
@@ -43,64 +23,24 @@ router.get('/:id', withAuth, (req, res) => {
     });
 });
 
-//get a single post
-router.get('/edit/:id', withAuth, (req, res) => {
-  Group.findOne({
-    where: {
-      id: req.params.id,
-    },
-    attributes: ['id', 'name', 'description'],
-    include: [
-      {
-        model: User,
-        attributes: ['username'],
-      },
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username'],
-        },
-      },
-    ],
+*/
+
+router.get('/new', (req, res) => {
+  res.render('create-group', {
+    loggedIn: true,
+  });
+});
+
+router.post('/', withAuth, (req, res) => {
+  Group.create({
+    name: req.body.name,
+    description: req.body.desc,
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
-        return;
-      }
-      //serialize the data
-      const post = dbPostData.get({ plain: true });
-      // pass to the template
-      res.render('edit-post', {
-        post,
-        loggedIn: req.session.loggedIn,
-      });
-    })
+    .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
-
-router.get('/group', (req, res) => {
-  res.render('group', {
-    loggedIn: true,
-  });
-});
-
-/* router.post('/', withAuth, (req, res) => {
-  Group.create({
-    name: req.body.name,
-    description: req.body.description,
-    id: req.session.id,
-  })
-    .then((dbPostData) => res.json(dbPostData))
-    .catch((err) => {
-      console.log('nope');
-      res.status(500).json(err);
-    });
-}); */
 
 module.exports = router;

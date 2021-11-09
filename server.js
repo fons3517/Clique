@@ -3,10 +3,6 @@
 const { instrument } = require('@socket.io/admin-ui'); //How can we implement this aspect of the application? Ask Peter
 const express = require('express');
 const app = express();
-const https = require('https');
-const server = https.createServer(app);
-const { Server } = require('https');
-const socketio = require('socket.io');
 const io = socketio(server);
 const sequelize = require('./config/connection');
 const path = require('path');
@@ -15,9 +11,13 @@ const exphbs = require('express-handlebars');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const helpers = require('./utils/helpers');
+const socketio = require('socket.io');
+
 require('dotenv').config();
 const fs = require('fs');
 
+const server = http.createServer(app);
+const io = socketio(server);
 const PORT = process.env.PORT || 3001;
 //setup session
 const sess = {
@@ -105,26 +105,13 @@ server.listen(3000, () => {
   console.log(`Server is running on ${PORT}`);
 });
 
-
-// EXAMPLE: Only need authentication on userIo instance because we set up middleware for this namespace
-const userIo = io.of('/user'); // creating a user namespace and using io.of to get to that namespace
-userIo.on('connection', socket => {
-  console.log('connected to user namespace with username ' + socket.username);
-});
-userIo.use((socket, next) => {
-  if (socket.handshake.auth.token) {
-    socket.username = getUserNameFromToken(socket.handshake.auth.token); //get info from token
-    next();
-  } else {
-    next(new Error('Please send Token'));
-  }
+io.on('connection', socket => {
+  console.log('New Socket Connection. ID: ' + socket.id);
+  socket.on("send-message", (message, room) => {
+    socket.to(room).emit('recieve-message', message)
+  });
+  socket.on('join-room', room => {
+    socket.join(room);   //<============ May want to add authentication/check if user is in group
+  });
 });
 
-function getUserNameFromToken(token) {
-  return token;// here we can access database in order to grab specific info an
-};
-
-
-// sequelize.sync({ force: false }).then(() => {
-//   server.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
-// });

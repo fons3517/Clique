@@ -1,9 +1,8 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User, Post, Comment } = require('../models');
+const { Group, User, Post, Comment } = require('../models');
 
 router.get('/', async (req, res) => {
-
   await req.session.loggedIn;
 
   res.render('splash', {
@@ -45,7 +44,7 @@ router.get('/home', (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/dashboard');
     return;
   }
   res.render('login');

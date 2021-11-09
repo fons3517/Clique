@@ -1,49 +1,41 @@
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/uikit@3.8.0/dist/css/uikit.min.css"
-		/>
-		<link rel="stylesheet" href="/css/styles.css" />
-		<title>Clique</title>
-	</head>
-	<body>
-		<div class="bg">
-			<nav class="uk-navbar-container" uk-sticky uk-navbar>
-				<div class="uk-navbar-left">
-					<ul class="uk-navbar-nav">
-						<li class="uk-active"><a href="#">Home</a></li>
-						<li>
-							<a href="/dashboard">Dashboard</a>
-							<div class="uk-navbar-dropdown">
-								<ul class="uk-nav uk-navbar-dropdown-nav">
-									<li class="uk-active"><a href="#">Groups</a></li>
-									<li><a href="#">Posts</a></li>
-									<li><a href="#">Comments</a></li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="/explore">Explore</a></li>
-						{{#if loggedIn}}
-							<li><a id="logout">logout</a></li>
-						{{/if}}
-					</ul>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link
+      rel='stylesheet'
+      href='https://cdn.jsdelivr.net/npm/uikit@3.8.0/dist/css/uikit.min.css'
+    />
+    <link rel='stylesheet' href='/css/styles.css' />
+    <title>Clique</title>
+  </head>
+  <body>
+    <div class='bg'>
+      <nav class='uk-navbar-container' uk-sticky uk-navbar>
+        <div class='uk-navbar-left'>
+          <ul class='uk-navbar-nav'>
+            <li>
+              <a href='/dashboard'>Dashboard</a>
+            </li>
+            <li><a href='/explore'>Explore</a></li>
+            {{#if loggedIn}}
+              <li><a id='logout'>logout</a></li>
+            {{/if}}
+          </ul>
 
-				</div>
-				<div class="uk-navbar-center">
-					<a class="uk-navbar-item uk-logo" href="#">Logo</a>
-				</div>
-			</nav>
+        </div>
+        <div class='uk-navbar-center'>
+          <a class='uk-navbar-item uk-logo' href='#'>Clique</a>
+        </div>
+      </nav>
 
-			<main>
-				<div>{{{body}}}</div>
-			</main>
-			{{#if loggedIn}}
-				<script src="/js/logout.js"></script>
-			{{/if}}
-		</div>
-	</body>
+      <main>
+        <div>{{{body}}}</div>
+      </main>
+      {{#if loggedIn}}
+        <script src='/js/logout.js'></script>
+      {{/if}}
+    </div>
+  </body>
 </html>

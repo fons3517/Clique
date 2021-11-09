@@ -29,11 +29,14 @@
   class='uk-card uk-box-shadow-hover-small uk-light uk-background-secondary uk-padding uk-card-body uk-width-1-6@s side-nav'
 >
   <ul class='uk-nav-default uk-nav-parent-icon' uk-nav>
-    <li class='uk-active'><a href='#'>?This Group?</a></li>
+    <li class='side-nav-group uk-active uk-text-bold uk-margin-bottom'><a href='#'>{{group.name}}</a></li>
     <li class='uk-parent'>
-      <a href='#'>My Groups</a>
+      <a href='#'><span
+          class='uk-margin-small-right'
+          uk-icon='icon: users'
+        ></span>My Groups</a>
       <ul class='uk-nav-sub'>
-        <li><a href='#'>Group 1</a></li>
+        <li><a href='#'>{{group.name}}</a></li>
         <li><a href='#'>Group 2</a></li>
       </ul>
     </li>
@@ -64,7 +67,7 @@
   <div class='uk-width-large'>
     <div class='uk-card uk-card-default uk-border-rounded uk-margin-large-top'>
       <div class='uk-card-primary chat-top-padding'>
-        <p class='uk-margin-left chat-top uk-margin-top'>Group Name Chat</p>
+        <p class='uk-margin-left chat-top uk-margin-top'>{{group.name}} Chat Room</p>
       </div>
       <div class='uk-card-body uk-padding-small chat-box'>
         <div class='guest uk-grid-small uk-flex-bottom uk-flex-left' uk-grid>
@@ -74,7 +77,7 @@
           <!--SOCKET IO MESSAGES GO HERE -->
         </div>
 
-      <div class='uk-card-footer uk-padding-remove'>
+      <div class='uk-card-footer uk-padding-remove chat-input'>
         <div class='uk-grid-small uk-flex-middle' uk-grid>
           <div class='uk-width-auto'>
             <a
@@ -84,29 +87,17 @@
               uk-icon='icon: close'
             ></a>
           </div>
-          <form id='message-form'>
+          <form id='message-form' class='uk-width-expand'>
             <div class='uk-width-expand'>
               <div class='uk-padding-small uk-padding-remove-horizontal'>
                 <input
                   
                   type='input'
-                  class='uk-input uk-padding-remove uk-border-remove'
+                  class='uk-input message-input uk-padding-remove uk-border-remove'
                   rows='1'
-                  placeholder='Type message...'
+                  placeholder='  Type message...'
                 />
               </div>
-            </div>
-            <div class='uk-width-auto'>
-              <ul class='uk-iconnav uk-margin-small-right'>
-                <li>
-                  <a
-                    href='#'
-                    type='submit'
-                    id='send-message'
-                    uk-icon='icon: reply'
-                  ></a>
-                </li>
-              </ul>
             </div>
           </div>
         </div>

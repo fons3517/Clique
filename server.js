@@ -66,7 +66,6 @@ sequelize.sync({ force: false }).then(() => {
   server.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
 });
 
-
 /* Scroll down to stay at bottom of chat box
 chatMessages.scrollTop = chatMessages.scrollHeight;
 */

@@ -42,15 +42,31 @@ app.use(session(sess));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
+  server.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
 });
 
+
+const users = {};
+
 io.on('connection', socket => {
-  console.log('New Socket Connection. ID: ' + socket.id);
-  socket.on("send-message", (message, room) => {
-    socket.to(room).emit('recieve-message', message)
+  console.log('New Socket Connection. ID: ' + socket.id); // logging new connection
+  socket.on('new-user', name => {
+    users[socket.id] = name;
+    socket.broadcast.emit('user-connected', name); // outputting 'user-connected' with name following
+  });
+  socket.on('chat-message', (message, room) => {
+    socket.to(room).emit('recieve-message', { message: message, name: users[socket.id] }); // attatching obj w/ users socket.id and message
   });
   socket.on('join-room', room => {
-    socket.join(room);   //<============ May want to add authentication/check if user is in group
+    socket.join(room); //<============ May want to add authentication/check if user is in group
+  });
+  socket.on('disconnect', () => {
+    socket.broadcast.emit('user-disconnected', users[socket.id]); // user-disconnected
+    delete users[socket.id]; // deleting users name from connection
   });
 });
+
+/* Scroll down to stay at bottom of chat box
+chatMessages.scrollTop = chatMessages.scrollHeight;
+*/
+

@@ -20,7 +20,6 @@ Full-stack web application deployed with Heroku
 - [Table_of_Contents](#table_of_contents)
 - [Installation](#installation)
 - [Developer_Profile](#developer_profile)
-
 - [Installation](#installation)
 - [Usage](#usage)
 - [Acknowledgements](#credits)
@@ -44,7 +43,7 @@ Full-stack web application deployed with Heroku
 -npm eslint --save-dev
 npx eslint --init
 
-#### Developer_Profile:
+#### Developer_Profiles:
 
 -[fons3517 Github Profile](https://github.com/fons3517)
 
@@ -69,7 +68,7 @@ Manual
 
 ###### Questions:
 
-If you have any questions, feel free to reachout and contact us:
+If you have any questions, reach out and contact us:
 
 -fons3517@gmail.com
 

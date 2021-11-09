@@ -4,29 +4,13 @@ const withAuth = require('../utils/auth');
 
 // get all posts
 router.get('/', withAuth, (req, res) => {
-  Post.findAll({
-    attributes: ['id', 'title', 'post_text', 'user_id', 'created_at'],
-    order: [['created_at', 'DESC']],
-    include: [
-      {
-        model: User,
-        as: 'user',
-        attributes: ['username'],
-      },
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username'],
-        },
-      },
-    ],
+  Group.findAll({
+    attributes: ['id', 'name', 'description'],
   })
     .then((dbPostData) => {
       //serialize the data before passing to the template
-      const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
+      const groups = dbPostData.map((post) => post.get({ plain: true }));
+      res.render('dashboard', { groups, loggedIn: true });
     })
     .catch((err) => {
       console.log(err);

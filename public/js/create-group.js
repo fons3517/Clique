@@ -1,9 +1,29 @@
-async function createGroupHandler(event) {
+async function newGroupHandler(event) {
   event.preventDefault();
 
-  document.location.replace('/dashboard/create');
+  const name = document.querySelector('input[name="group-title"]').value;
+  const desc = document
+    .querySelector('textarea[name="group-info"]')
+    .value.trim();
+
+  const response = await fetch('/group', {
+    method: 'POST',
+    body: JSON.stringify({
+      name,
+      desc,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (response.ok) {
+    document.location.replace('/dashboard');
+  } else {
+    alert(response.statusText);
+  }
 }
 
 document
-  .querySelector('#create-new-group')
-  .addEventListener('click', createGroupHandler);
+  .querySelector('.new-group-form')
+  .addEventListener('submit', newGroupHandler);

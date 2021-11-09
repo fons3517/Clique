@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 // get all posts
 router.get('/:id', withAuth, (req, res) => {
   Group.findbyPk(req.params.id, {
-    attributes: ['id', 'name', 'description', 'owner_id'],
+    attributes: ['id', 'name', 'description'],
     include: [
       {
         model: Post,
@@ -45,11 +45,11 @@ router.get('/:id', withAuth, (req, res) => {
 
 //get a single post
 router.get('/edit/:id', withAuth, (req, res) => {
-  Post.findOne({
+  Group.findOne({
     where: {
       id: req.params.id,
     },
-    attributes: ['id', 'title', 'post_text', 'created_at'],
+    attributes: ['id', 'name', 'description'],
     include: [
       {
         model: User,

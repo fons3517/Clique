@@ -1,9 +1,135 @@
+<button
+  type='submit'
+  class='btn uk-button uk-button-primary uk-margin-bottom'
+  id='create-new-post'
+>+ Create new post</button>
 
-{{group.name}}
-{{group.description}}
+{{#if posts.length}}
+  <section class='post-margin'>
+    <legend class='uk-legend uk-margin-top uk-text-bold'>DASHBOARD</legend>
 
-{{#each group.posts as |post|}}
+    <ul class='post-list uk-list'>
+      {{#each posts as |post|}}
+        <li class='uk-card uk-card-body uk-card-secondary'>
+          {{>post-info post}}
+          <a
+            href='/dashboard/edit/{{post.id}}'
+            class='edit-link uk-button uk-button-danger'
+          >edit post</a>
+        </li>
 
-{{> post-info post}}
+      {{/each}}
+    </ul>
+  </section>
+{{/if}}
 
-{{/each}}
+<script src='/js/create-post.js'></script>
+
+<div
+  class='uk-card uk-box-shadow-hover-small uk-light uk-background-secondary uk-padding uk-card-body uk-width-1-6@s side-nav'
+>
+  <ul class='uk-nav-default uk-nav-parent-icon' uk-nav>
+    <li class='uk-active'><a href='#'>?This Group?</a></li>
+    <li class='uk-parent'>
+      <a href='#'>My Groups</a>
+      <ul class='uk-nav-sub'>
+        <li><a href='#'>Group 1</a></li>
+        <li><a href='#'>Group 2</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href='#'><span
+          class='uk-margin-small-right'
+          uk-icon='icon: mail'
+        ></span>
+        My Posts</a>
+    </li>
+    <li class='uk-nav-divider'></li>
+    <li>
+      <a href='#'><span
+          class='uk-margin-small-right'
+          uk-icon='icon: plus'
+          id='create-new-group'
+        ></span>
+        Create Group</a>
+    </li>
+    <li class='uk-nav-divider'></li>
+
+  </ul>
+</div>
+
+<!--CHATBOX SECTION-->
+<div class='uk-section chat-container uk-margin-remove' id='chat-hide'>
+  <div class='uk-width-large'>
+    <div class='uk-card uk-card-default uk-border-rounded uk-margin-large-top'>
+      <div class='uk-card-primary chat-top-padding'>
+        <p class='uk-margin-left chat-top uk-margin-top'>Group Name Chat</p>
+      </div>
+      <div class='uk-card-body uk-padding-small chat-box'>
+        <div class='guest uk-grid-small uk-flex-bottom uk-flex-left' uk-grid>
+        </div>
+
+        <div>
+          <!--SOCKET IO MESSAGES GO HERE -->
+        </div>
+
+      <div class='uk-card-footer uk-padding-remove'>
+        <div class='uk-grid-small uk-flex-middle' uk-grid>
+          <div class='uk-width-auto'>
+            <a
+              href='#'
+              class='uk-icon-link uk-margin-small-left'
+              id='close-button'
+              uk-icon='icon: close'
+            ></a>
+          </div>
+          <form id='message-form'>
+            <div class='uk-width-expand'>
+              <div class='uk-padding-small uk-padding-remove-horizontal'>
+                <input
+                  
+                  type='input'
+                  class='uk-input uk-padding-remove uk-border-remove'
+                  rows='1'
+                  placeholder='Type message...'
+                />
+              </div>
+            </div>
+            <div class='uk-width-auto'>
+              <ul class='uk-iconnav uk-margin-small-right'>
+                <li>
+                  <a
+                    href='#'
+                    type='submit'
+                    id='send-message'
+                    uk-icon='icon: reply'
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div>
+    <div class='show-chat'>
+      <button id='show-chat' class='uk-button uk-button-primary'>
+        OPEN CHAT
+      </button>
+    </div>
+  </div>
+</div>
+
+<script
+  src='https://cdn.jsdelivr.net/npm/uikit@3.8.0/dist/js/uikit.min.js'
+></script>
+<script
+  src='https://cdn.jsdelivr.net/npm/uikit@3.8.0/dist/js/uikit-icons.min.js'
+></script>
+<script src='/js/closechat.js'></script>
+<script src='/js/logout.js'></script>

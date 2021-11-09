@@ -41,6 +41,9 @@ app.use(session(sess));
 //use routes
 app.use(routes);
 
+sequelize.sync({ force: false }).then(() => {
+  server.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
+});
 
 
 const users = {};

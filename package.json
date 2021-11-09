@@ -1,47 +1,47 @@
 {
-  "name": "project2",
-  "version": "1.0.0",
-  "description": "Full-stack web application",
-  "main": "server.js",
-  "dependencies": {
-    "@socket.io/admin-ui": "^0.2.0",
-    "babel": "^6.23.0",
-    "babel-loader": "^8.2.3",
-    "bcrypt": "^5.0.1",
-    "bufferutil": "^4.0.5",
-    "ci": "^2.1.1",
-    "connect-session-sequelize": "^7.1.2",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.3.4",
-    "express-session": "^1.17.2",
-    "mysql2": "^2.3.3-rc.0",
-    "rollup": "^2.59.0",
-    "rollup-plugin-uglify": "^6.0.4",
-    "sequelize": "^6.9.0",
-    "socket.io": "^4.3.1",
-    "socket.io-client": "^4.3.2",
-    "utf-8-validate": "^5.0.7",
-    "webpack": "^5.61.0",
-    "webpack-cli": "^4.9.1",
-    "webpack-remove-debug": "^0.1.0"
-  },
-  "devDependencies": {
-    "eslint": "^8.2.0",
-    "eslint-plugin-react": "^7.26.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fons3517/Project2.git"
-  },
-  "author": "Michael Fischer, Jager Overson, Alfonso Robles",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/fons3517/Project2/issues"
-  },
-  "homepage": "https://github.com/fons3517/Project2#readme"
+	"name": "project2",
+	"version": "1.0.0",
+	"description": "Realtime chat app using rooms",
+	"main": "server.js",
+	"dependencies": {
+		"@socket.io/admin-ui": "^0.2.0",
+		"babel": "^6.23.0",
+		"babel-loader": "^8.2.3",
+		"bcrypt": "^5.0.1",
+		"bufferutil": "^4.0.5",
+		"ci": "^2.1.1",
+		"connect-session-sequelize": "^7.1.2",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"express-handlebars": "^5.3.4",
+		"express-session": "^1.17.2",
+		"mysql2": "^2.3.3-rc.0",
+		"rollup": "^2.59.0",
+		"rollup-plugin-uglify": "^6.0.4",
+		"sequelize": "^6.9.0",
+		"socket.io": "^4.3.1",
+		"socket.io-client": "^4.3.2",
+		"utf-8-validate": "^5.0.7",
+		"webpack": "^5.61.0",
+		"webpack-cli": "^4.9.1",
+		"webpack-remove-debug": "^0.1.0"
+	},
+	"devDependencies": {
+		"eslint": "^8.2.0",
+		"eslint-plugin-react": "^7.26.1"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/fons3517/Project2.git"
+	},
+	"author": "Michael Fischer, Jager Overson, Alfonso Robles",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/fons3517/Project2/issues"
+	},
+	"homepage": "https://github.com/fons3517/Project2#readme"
 }

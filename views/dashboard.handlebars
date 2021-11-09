@@ -6,11 +6,11 @@
 
 {{#if posts.length}}
   <section class='post-margin'>
-    <legend class='uk-legend uk-margin-top'>Dashboard</legend>
+    <legend class='uk-legend uk-margin-top uk-text-bold'>DASHBOARD</legend>
 
     <ul class='post-list uk-list'>
       {{#each posts as |post|}}
-        <li class='uk-card uk-card-body uk-card-default'>
+        <li class='uk-card uk-card-body uk-card-secondary'>
           {{>post-info post}}
           <a
             href='/dashboard/edit/{{post.id}}'
@@ -50,18 +50,12 @@
       <a href='#'><span
           class='uk-margin-small-right'
           uk-icon='icon: plus'
+          id='create-new-group'
         ></span>
         Create Group</a>
     </li>
     <li class='uk-nav-divider'></li>
-    <li>
-      <a href='#'><span
-          type='submit'
-          class='uk-margin-small-right'
-          uk-icon='icon: trash'
-        ></span>
-        Item</a>
-    </li>
+
   </ul>
 </div>
 
@@ -69,7 +63,7 @@
 <div class='uk-section chat-container uk-margin-remove' id='chat-hide'>
   <div class='uk-width-large'>
     <div class='uk-card uk-card-default uk-border-rounded uk-margin-large-top'>
-      <div class='uk-card-secondary chat-top-padding'>
+      <div class='uk-card-primary chat-top-padding'>
         <p class='uk-margin-left chat-top uk-margin-top'>Group Name Chat</p>
       </div>
       <div class='uk-card-body uk-padding-small chat-box'>
@@ -158,6 +152,7 @@
     </div>
   </div>
 </div>
+
 <script
   src='https://cdn.jsdelivr.net/npm/uikit@3.8.0/dist/js/uikit.min.js'
 ></script>
@@ -165,3 +160,4 @@
   src='https://cdn.jsdelivr.net/npm/uikit@3.8.0/dist/js/uikit-icons.min.js'
 ></script>
 <script src='/js/closechat.js'></script>
+<script src='/js/logout.js'></script>

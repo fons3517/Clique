@@ -1,4 +1,4 @@
-# Project Title:
+# Project_Title:
 
 Clique
 
@@ -6,23 +6,28 @@ Clique
 
 Full-stack web application deployed with Heroku
 
-### Contributors:
+## Contributors:
 
 -Jager Overson
 -Alfonso Robles
 -Michael Fischer
 
-### Table of Contents:
+### Table_of_Contents:
 
+- [Project_Title](#project_title)
+- [Description](#description)
+- [Contributors](#contributors)
+- [Table_of_Contents](#table_of_contents)
 - [Installation](#installation)
+- [Developer_Profile](#developer_profile)
 - [Usage](#usage)
 - [Acknowledgements](#credits)
 - [License](#license)
 - [Testing](#testing)
 - [Questions](#questions)
-- [ScreenCastify Video](#screenCastify)
+- [Media](#media)
 
-#### Installation:
+### Installation:
 
 -npm init
 -npm i
@@ -36,7 +41,7 @@ Full-stack web application deployed with Heroku
 -npm eslint --save-dev
 npx eslint --init
 
-##### Developer Profile:
+#### Developer_Profile:
 
 -[fons3517 Github Profile](https://github.com/fons3517)
 
@@ -50,8 +55,6 @@ Free
 
 ###### Acknowledgements:
 
-[Request-Response/Professional-README-Guide](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)
-
 ###### License:
 
 MIT
@@ -64,13 +67,14 @@ Manual
 ###### Questions:
 
 If you have any questions, feel free to reachout and contact us:
+
 -fons3517@gmail.com
 
 -oversonjager@gmail.com
 
 -fs.michaelfischer@gmail.com
 
-###### Screencastify link
+###### Media
 
 ![](./Photos/README1screenshot.JPG)
 ![](./Photos/README2.JPG)

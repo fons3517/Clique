@@ -1,6 +1,8 @@
 // Client-side socket script
 import { io } from 'socket.io-client';
 
+const io = require('socket.io').listen(app);
+
 const socket = io(
   'http://localhost:3001' || 'https://obscure-scrubland-68562.herokuapp.com/'
 ); // No authentication needed on regular namespace here

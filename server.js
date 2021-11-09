@@ -1,6 +1,5 @@
 // Server Initialization
 // Requiring libraries including socket.io
-const { instrument } = require('@socket.io/admin-ui'); //How can we implement this aspect of the application? Ask Peter
 const express = require('express');
 const app = express();
 const https = require('https');

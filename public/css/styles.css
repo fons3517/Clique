@@ -43,7 +43,7 @@
 
 .side-nav {
   height: 100%;
-  width: 200px;
+  width: 220px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -63,10 +63,4 @@
 .post-margin {
   margin-left: 250px;
   margin-right: 20px;
-}
-
-#bottom-nav {
-  position: fixed;
-  bottom: 0;
-  margin-left: -250px;
 }

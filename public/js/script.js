@@ -1,7 +1,5 @@
 // Client-side socket script
-
 import { io } from 'socket.io-client';
-
 const messageInput = document.getElementById();
 const form = document.getElementById();
 
@@ -11,9 +9,10 @@ const socket = io(
 const userSocket = io('http://localhost:3001/user', {
   auth: { token: 'Test' }, // Authorization required for this specific namespace
 });
+
 socket.on('connect', () => {
   displayMessage(`You connected with id: ${socket.id}`);
-  socket.emit('join-room', room); // <========================CHANGE TO GROUP ID!!!
+  socket.emit('join-room', groupId); // <========================CHANGE TO GROUP ID!!!
 });
 
 userSocket.on('connnect_error', (error) => {
@@ -26,7 +25,6 @@ socket.on('receive-message', (message) => {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-
   const message = messageInput.value;
   if (message === '') {
     return;

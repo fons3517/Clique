@@ -6,7 +6,7 @@ Clique
 
 Full-stack web application deployed with Heroku
 
-## Contributors:
+### Contributors:
 
 -Jager Overson
 -Alfonso Robles
@@ -20,6 +20,8 @@ Full-stack web application deployed with Heroku
 - [Table_of_Contents](#table_of_contents)
 - [Installation](#installation)
 - [Developer_Profile](#developer_profile)
+
+- [Installation](#installation)
 - [Usage](#usage)
 - [Acknowledgements](#credits)
 - [License](#license)
@@ -28,6 +30,7 @@ Full-stack web application deployed with Heroku
 - [Media](#media)
 
 ### Installation:
+
 
 -npm init
 -npm i
@@ -73,6 +76,7 @@ If you have any questions, reach out and contact us:
 -oversonjager@gmail.com
 
 -fs.michaelfischer@gmail.com
+
 
 ###### Media
 

@@ -84,10 +84,23 @@ router.get('/edit/:id', withAuth, (req, res) => {
     });
 });
 
-router.get('/new', (req, res) => {
-  res.render('add-post', {
+router.get('/group', (req, res) => {
+  res.render('group', {
     loggedIn: true,
   });
 });
+
+/* router.post('/', withAuth, (req, res) => {
+  Group.create({
+    name: req.body.name,
+    description: req.body.description,
+    id: req.session.id,
+  })
+    .then((dbPostData) => res.json(dbPostData))
+    .catch((err) => {
+      console.log('nope');
+      res.status(500).json(err);
+    });
+}); */
 
 module.exports = router;

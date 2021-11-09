@@ -41,10 +41,6 @@ app.use(session(sess));
 //use routes
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
-  server.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
-});
-
 
 const users = {};
 
@@ -65,6 +61,11 @@ io.on('connection', socket => {
     delete users[socket.id]; // deleting users name from connection
   });
 });
+
+sequelize.sync({ force: false }).then(() => {
+  server.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
+});
+
 
 /* Scroll down to stay at bottom of chat box
 chatMessages.scrollTop = chatMessages.scrollHeight;

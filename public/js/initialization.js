@@ -1,13 +1,4 @@
 /* eslint-disable no-unused-vars */
-
-
-
-
-// Setup through
-const express = require('express');
-const https = require('https');
-const app = express();
-
 // Initialization from documentation
 const { readFileSync } = require('fs');
 const { createServer } = require('https');

@@ -66,7 +66,7 @@ Manual
 
 ###### Questions:
 
-If you have any questions, feel free to reachout and contact us:
+If you have any questions, reach out and contact us:
 
 -fons3517@gmail.com
 

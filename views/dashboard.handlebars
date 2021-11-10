@@ -8,7 +8,7 @@
           {{>group-info group}}
           <a
             href='/group/{{group.id}}'
-            class='edit-link uk-button uk-button-danger'
+            class=' group-button uk-button uk-button-danger uk-align-right'
           >view group</a>
         </li>
 
@@ -49,7 +49,12 @@
         Create Group</a>
     </li>
     <li class='uk-nav-divider'></li>
-
+    <li>
+    <a href='#'><span
+          class='uk-margin-small-right'
+          uk-icon='icon: users'
+        ></span>Welcome, {{user.username}}</a> <!-- USER NOT DISPLAYING -->
+</li>
   </ul>
 </div>
 

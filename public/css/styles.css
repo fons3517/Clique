@@ -15,6 +15,8 @@
 .chat-box {
   overflow-y: scroll;
   max-height: 400px;
+  height: 600px;
+  padding-bottom: 50px;
 }
 
 .chat-messages {
@@ -63,4 +65,23 @@
 .post-margin {
   margin-left: 250px;
   margin-right: 20px;
+}
+
+.chat-input {
+  position: fixed;
+  bottom: 0;
+  right: 35;
+  padding-bottom: 40px;
+  padding-right: 20px;
+  width: max-content;
+  z-index: 1;
+  background-color: white;
+}
+
+#message-form {
+  width: 380px;
+}
+
+.side-nav-group {
+  font-size: 20px;
 }

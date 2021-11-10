@@ -1,29 +1,25 @@
+<a href="/group/new-post"> 
 <button
   type='submit'
   class='btn uk-button uk-button-primary uk-margin-bottom'
   id='create-new-post'
 >+ Create new post</button>
+</a>
 
-{{#if posts.length}}
+{{#if group.posts.length}}
   <section class='post-margin'>
     <legend class='uk-legend uk-margin-top uk-text-bold'>DASHBOARD</legend>
 
     <ul class='post-list uk-list'>
-      {{#each posts as |post|}}
+      {{#each group.posts as |post|}}
         <li class='uk-card uk-card-body uk-card-secondary'>
           {{>post-info post}}
-          <a
-            href='/dashboard/edit/{{post.id}}'
-            class='edit-link uk-button uk-button-danger'
-          >edit post</a>
         </li>
 
       {{/each}}
     </ul>
   </section>
 {{/if}}
-
-<script src='/js/create-post.js'></script>
 
 <div
   class='uk-card uk-box-shadow-hover-small uk-light uk-background-secondary uk-padding uk-card-body uk-width-1-6@s side-nav'
@@ -32,16 +28,6 @@
     <li class='side-nav-group uk-active uk-text-bold uk-margin-bottom'><a
         href='#'
       >{{group.name}}</a></li>
-    <li class='uk-parent'>
-      <a href='#'><span
-          class='uk-margin-small-right'
-          uk-icon='icon: users'
-        ></span>My Groups</a>
-      <ul class='uk-nav-sub'>
-        <li><a href='#'>{{group.name}}</a></li>
-        <li><a href='#'>Group 2</a></li>
-      </ul>
-    </li>
 
     <li>
       <a href='#'><span
@@ -85,6 +71,7 @@
     </div>
   </div>
 </div>
+
 <div class='uk-card-footer uk-padding-remove chat-input'>
   <div class='uk-grid-small uk-flex-middle' uk-grid>
     <div class='uk-width-auto'>
@@ -101,7 +88,7 @@
           <form id='message-form'>
             <input
               type='input'
-              id='message-input msg'
+              id='message-input'
               class='uk-input message-input uk-padding-remove uk-border-remove'
               rows='1'
               placeholder='  Type message...'

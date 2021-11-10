@@ -18,7 +18,7 @@ async function newFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace(`/group`); // <--- TODO: FIX ROUTE
+    window.history.back(); // <--- TODO: FIX ROUTE
   } else {
     alert(response.statusText);
   }

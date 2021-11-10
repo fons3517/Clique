@@ -7,7 +7,7 @@
         <li class='uk-card uk-card-body uk-card-secondary'>
           {{>group-info group}}
           <a
-            href='/group/{{group.id}}'
+            href='/group/id/{{group.id}}'
             class=' group-button uk-button uk-button-danger uk-align-right'
           >view group</a>
         </li>
@@ -27,8 +27,9 @@
           uk-icon='icon: users'
         ></span>My Groups</a>
       <ul class='uk-nav-sub'>
-        <li><a href='#'>Group 1</a></li>
-        <li><a href='#'>Group 2</a></li>
+        {{#each groups as |group|}}
+        {{> group-sidebar group }}
+        {{/each}}
       </ul>
     </li>
 

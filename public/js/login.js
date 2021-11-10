@@ -17,7 +17,9 @@ async function loginFormHandler(event) {
     });
 
     if (response.ok) {
+      sessionStorage.setItem('username', username);
       document.location.replace('/dashboard');
+      console.log(username);
     } else {
       alert(response.statusText);
     }

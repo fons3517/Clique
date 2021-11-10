@@ -1,17 +1,19 @@
 const router = require('express').Router();
-const { Group, User, Post, Comment } = require('../models');
+const { Group, Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get a group
-router.get('/:id', withAuth, (req, res) => {
+router.get('/id/:id', withAuth, (req, res) => {
   Group.findByPk(req.params.id, {
     attributes: ['id', 'name', 'description'],
-    include: [
-      {
-        model: Post,
-        attributes: ['title', 'post_text', 'user_id', 'created_at'],
-      },
-    ],
+    include: {
+      model: Post,
+      attributes: ['id', 'title', 'post_text', 'user_id', 'created_at'],
+      include: {
+        model: User,
+        attributes: ['id', 'username'],
+      }
+    }
   })
     .then((dbGroupData) => {
       //serialize the data before passing to the template
@@ -22,6 +24,9 @@ router.get('/:id', withAuth, (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+  req.session.save(() => {
+    req.session.current_group_id = req.params.id;
+  });
 });
 
 router.get('/new', (req, res) => {
@@ -40,6 +45,12 @@ router.post('/', withAuth, (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+router.get('/new-post', (req, res) => {
+  res.render('add-post', {
+    loggedIn: true,
+  });
 });
 
 module.exports = router;

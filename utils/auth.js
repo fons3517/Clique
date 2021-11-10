@@ -5,6 +5,7 @@ const withAuth = (req, res, next) => {
     session = req.session;
     session.userid = req.body.username;
     console.log(req.session);
+    console.log(session.user_id);
     next();
   }
 };

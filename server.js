@@ -6,14 +6,14 @@ const exphbs = require('express-handlebars');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const helpers = require('./utils/helpers');
-const socketio = require('socket.io');
+const io = require('socket.io')(5346);
 const http = require('http');
+const cookieParser = require('cookie-parser');
 
 require('dotenv').config();
 
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
 const PORT = process.env.PORT || 3001;
 
 //setup session
@@ -22,7 +22,7 @@ const sess = {
   secret: 'supersecretsessionsecrettext',
   cookie: { maxAge: oneDay },
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   store: new SequelizeStore({
     db: sequelize,
   }),
@@ -60,13 +60,13 @@ io.on('connection', (socket) => {
     formatMessage(cliqueBot, 'A user has joined the chat!')
   );
 
+  // chat message listen
+  socket.on('chatMessage', (username, msg) => {
+    io.emit('message', formatMessage(username, msg));
+  });
+
   //client disconnect
   socket.on('disconnect', () => {
     io.emit('message', formatMessage(cliqueBot, 'A user has disconnected'));
-  });
-
-  // chat message listen
-  socket.on('chatMessage', (msg) => {
-    io.emit('message', formatMessage('test', msg));
   });
 });

@@ -23,6 +23,7 @@ Full-stack web application deployed with Heroku using JAWS DB
 
 #### Media
 
+[Clique](https://obscure-scrubland-68562.herokuapp.com/)
 ![Clique Homepage](./public/images/CliqueHomepage.JPG)
 ![Signup Page](./public/images/signupPage.JPG)
 ![Create Group](./public/images/createGroup.JPG)
@@ -30,17 +31,17 @@ Full-stack web application deployed with Heroku using JAWS DB
 
 ### Installation:
 
--npm init
--npm i
--npm express
--npm express-session
--npm dotenv
--npm mysql2
--npm sequelize
--npm bcrypt
--npm connect-session-sequelize
--npm eslint --save-dev
-npx eslint --init
+- npm init
+- npm i
+- npm express
+- npm express-session
+- npm dotenv
+- npm mysql2
+- npm sequelize
+- npm bcrypt
+- npm connect-session-sequelize
+- npm eslint --save-dev
+- npx eslint --init
 
 #### License:
 
@@ -49,9 +50,9 @@ MIT
 
 #### Contributors:
 
--Jager Overson
--Alfonso Robles
--Michael Fischer
+- Jager Overson
+- Alfonso Robles
+- Michael Fischer
 
 #### Developer_Profiles:
 
@@ -77,8 +78,8 @@ Free
 
 If you have any questions, reach out and contact us:
 
--fons3517@gmail.com
+- fons3517@gmail.com
 
--oversonjager@gmail.com
+- oversonjager@gmail.com
 
--fs.michaelfischer@gmail.com
+- fs.michaelfischer@gmail.com

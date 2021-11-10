@@ -85,3 +85,13 @@
 .side-nav-group {
   font-size: 20px;
 }
+
+#name-box {
+  position: fixed;
+  bottom: 0;
+  right: 1000px;
+  padding-bottom: 40px;
+  width: 420px;
+  z-index: 3;
+  background-color: white;
+}

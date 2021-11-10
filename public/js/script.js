@@ -1,6 +1,7 @@
 const chatForm = document.getElementById('message-form');
-const message = document.querySelector('input');
+const message = document.getElementById('message-input');
 const chatBox = document.querySelector('.chat-box');
+const username = sessionStorage.getItem('username');
 
 const socket = io();
 
@@ -19,7 +20,7 @@ chatForm.addEventListener('submit', (e) => {
 
   msg = message.value;
 
-  socket.emit('chatMessage', msg);
+  socket.emit('chatMessage', username, msg);
 
   message.value = '';
 });

@@ -8,6 +8,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const helpers = require('./utils/helpers');
 const io = require('socket.io')(5346);
 const http = require('http');
+const cookieParser = require('cookie-parser');
 
 require('dotenv').config();
 
@@ -21,7 +22,7 @@ const sess = {
   secret: 'supersecretsessionsecrettext',
   cookie: { maxAge: oneDay },
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   store: new SequelizeStore({
     db: sequelize,
   }),
@@ -49,6 +50,8 @@ const formatMessage = require('./utils/messages');
 const cliqueBot = 'cliqueBot';
 
 io.on('connection', (socket) => {
+  console.log('NEW CONNECTION');
+
   socket.emit('message', formatMessage(cliqueBot, 'Welcome!'));
 
   //broadcast when user connects
@@ -56,23 +59,14 @@ io.on('connection', (socket) => {
     'message',
     formatMessage(cliqueBot, 'A user has joined the chat!')
   );
-});
-console.log('NEW CONNECTION');
 
-socket.emit('message', formatMessage(cliqueBot, 'Welcome!'));
+  // chat message listen
+  socket.on('chatMessage', (username, msg) => {
+    io.emit('message', formatMessage(username, msg));
+  });
 
-//broadcast when user connects
-socket.broadcast.emit(
-  'message',
-  formatMessage(cliqueBot, 'A user has joined the chat!')
-);
-
-// chat message listen
-socket.on('chatMessage', (msg) => {
-  io.emit('message', formatMessage('user', msg));
-});
-
-//client disconnect
-socket.on('disconnect', () => {
-  io.emit('message', formatMessage(cliqueBot, 'A user has disconnected'));
+  //client disconnect
+  socket.on('disconnect', () => {
+    io.emit('message', formatMessage(cliqueBot, 'A user has disconnected'));
+  });
 });

@@ -85,3 +85,14 @@
 .side-nav-group {
   font-size: 20px;
 }
+
+/* .name-input {
+  position: fixed;
+  bottom: 0;
+  right: 35;
+  padding-bottom: 40px;
+  padding-right: 20px;
+  width: max-content;
+  z-index: 2;
+  background-color: white;
+}

@@ -18,6 +18,8 @@ async function loginFormHandler(event) {
 
     if (response.ok) {
       document.location.replace('/dashboard');
+      console.log(username);
+      response.send(username);
     } else {
       alert(response.statusText);
     }

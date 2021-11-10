@@ -18,8 +18,10 @@ chatForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
   msg = message.value;
+  username = session.username;
 
   socket.emit('chatMessage', msg);
+  socket.emit('chatMessage', username);
 
   message.value = '';
 });

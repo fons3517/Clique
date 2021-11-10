@@ -2,6 +2,7 @@ const chatForm = document.getElementById('message-form');
 const message = document.querySelector('input');
 const chatBox = document.querySelector('.chat-box');
 
+
 // get room from url
 const { room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,

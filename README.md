@@ -23,10 +23,10 @@ Full-stack web application deployed with Heroku using JAWS DB
 
 #### Media
 
-![](./public/Images/CliqueHomepage.JPG)
-![](./public/Images/signupPage.JPG)
-![](./public/Images/createGroup.JPG)
-![](./public/Images/groupList1.JPG)
+![Clique Homepage](./public/images/CliqueHomepage.JPG)
+![Signup Page](./public/images/signupPage.JPG)
+![Create Group](./public/images/createGroup.JPG)
+![Group List](./public/images/groupList1.JPG)
 
 ### Installation:
 

@@ -64,6 +64,7 @@ io.on('connection', (socket) => {
     io.emit('message', formatMessage(cliqueBot, 'A user has disconnected'));
   });
 
+
   // chat message listen
   socket.on('chatMessage', (msg) => {
     io.emit('message', formatMessage('test', msg));

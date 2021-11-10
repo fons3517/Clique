@@ -17,6 +17,7 @@
 		"express-session": "^1.17.2",
 		"moment": "^2.29.1",
 		"mysql2": "^2.3.3-rc.0",
+		"nodemon": "^2.0.15",
 		"rollup": "^2.59.0",
 		"rollup-plugin-uglify": "^6.0.4",
 		"sequelize": "^6.9.0",
@@ -33,7 +34,8 @@
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node server.js"
+		"start": "node server.js",
+		"watch": "nodemon server.js"
 	},
 	"repository": {
 		"type": "git",

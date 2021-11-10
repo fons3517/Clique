@@ -8,6 +8,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const helpers = require('./utils/helpers');
 const socketio = require('socket.io');
 const http = require('http');
+const cookieParser = require('cookie-parser');
 
 require('dotenv').config();
 
@@ -22,7 +23,7 @@ const sess = {
   secret: 'supersecretsessionsecrettext',
   cookie: { maxAge: oneDay },
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   store: new SequelizeStore({
     db: sequelize,
   }),

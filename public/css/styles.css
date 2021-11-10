@@ -86,13 +86,12 @@
   font-size: 20px;
 }
 
-/* .name-input {
+#name-box {
   position: fixed;
   bottom: 0;
-  right: 35;
+  right: 1000px;
   padding-bottom: 40px;
-  padding-right: 20px;
-  width: max-content;
-  z-index: 2;
+  width: 420px;
+  z-index: 3;
   background-color: white;
 }

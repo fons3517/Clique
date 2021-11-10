@@ -17,9 +17,10 @@ const io = socketio(server);
 const PORT = process.env.PORT || 3001;
 
 //setup session
+const oneDay = 1000 * 60 * 60 * 24;
 const sess = {
   secret: 'supersecretsessionsecrettext',
-  cookie: { maxAge: 180000 },
+  cookie: { maxAge: oneDay },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
@@ -63,7 +64,6 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     io.emit('message', formatMessage(cliqueBot, 'A user has disconnected'));
   });
-
 
   // chat message listen
   socket.on('chatMessage', (msg) => {

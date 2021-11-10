@@ -1,10 +1,7 @@
 // Client-side socket script
-import { io } from 'socket.io-client';
-
-const io = require('socket.io').listen(server);
 
 const socket = io(
-  'http://localhost:3001' || 'https://obscure-scrubland-68562.herokuapp.com/'
+  'ws://localhost:5346' || 'https://obscure-scrubland-68562.herokuapp.com/'
 ); // No authentication needed on regular namespace here
 const userSocket = io('http://localhost:3001/user', {
   auth: { token: 'Test' },
@@ -14,7 +11,7 @@ userSocket.on('connnect_error', (error) => {
 });
 
 
-const messageInput = document.getElementById('messages');
+const messageInput = document.getElementById('message-input');
 const form = document.querySelector('#message-form');
 
 const name = prompt('What is your username?');
@@ -23,7 +20,7 @@ socket.emit('new-user', name);
 
 socket.on('connect', () => {
   displayMessage(`You connected with id: ${socket.id}`);
-  socket.emit('join-room', groupId); // <========================CHANGE TO GROUP ID!!!
+  socket.emit('join-room', req.session.current_group_id); // <========================CHANGE TO GROUP ID!!!
 });
 
 socket.on('chat-message', (data) => {
@@ -54,7 +51,7 @@ form.addEventListener('submit', (e) => {
 
 function displayMessage(message) {
   const div = document.createElement('div');
-  div.textContent = message;
+  div.innerHTML = message;
   document.getElementById('message-container').append(div);
 }
 

@@ -1,6 +1,6 @@
 # Project_Title:
 
-Clique
+CLIQUE
 
 ## Description:
 

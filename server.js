@@ -50,17 +50,6 @@ const formatMessage = require('./utils/messages');
 const cliqueBot = 'cliqueBot';
 
 io.on('connection', (socket) => {
-  socket.on('joinRoom', ({ username, room }) => {
-    socket.emit('message', formatMessage(cliqueBot, 'Welcome!'));
-
-    //broadcast when user connects
-    socket.broadcast.emit(
-      'message',
-      formatMessage(cliqueBot, 'A user has joined the chat!')
-    );
-  });
-  console.log('NEW CONNECTION');
-
   socket.emit('message', formatMessage(cliqueBot, 'Welcome!'));
 
   //broadcast when user connects
@@ -68,14 +57,23 @@ io.on('connection', (socket) => {
     'message',
     formatMessage(cliqueBot, 'A user has joined the chat!')
   );
+});
+console.log('NEW CONNECTION');
 
-  // chat message listen
-  socket.on('chatMessage', (msg) => {
-    io.emit('message', formatMessage('user', msg));
-  });
+socket.emit('message', formatMessage(cliqueBot, 'Welcome!'));
 
-  //client disconnect
-  socket.on('disconnect', () => {
-    io.emit('message', formatMessage(cliqueBot, 'A user has disconnected'));
-  });
+//broadcast when user connects
+socket.broadcast.emit(
+  'message',
+  formatMessage(cliqueBot, 'A user has joined the chat!')
+);
+
+// chat message listen
+socket.on('chatMessage', (msg) => {
+  io.emit('message', formatMessage('user', msg));
+});
+
+//client disconnect
+socket.on('disconnect', () => {
+  io.emit('message', formatMessage(cliqueBot, 'A user has disconnected'));
 });

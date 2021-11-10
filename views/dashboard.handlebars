@@ -27,8 +27,9 @@
           uk-icon='icon: users'
         ></span>My Groups</a>
       <ul class='uk-nav-sub'>
-        <li><a href='#'>Group 1</a></li>
-        <li><a href='#'>Group 2</a></li>
+        {{#each groups as |group|}}
+        {{> group-sidebar group }}
+        {{/each}}
       </ul>
     </li>
 
@@ -49,7 +50,12 @@
         Create Group</a>
     </li>
     <li class='uk-nav-divider'></li>
-
+    <li>
+    <a href='#'><span
+          class='uk-margin-small-right'
+          uk-icon='icon: users'
+        ></span>Welcome, {{user.username}}</a> <!-- USER NOT DISPLAYING -->
+</li>
   </ul>
 </div>
 

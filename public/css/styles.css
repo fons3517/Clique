@@ -16,6 +16,7 @@
   overflow-y: scroll;
   max-height: 400px;
   height: 600px;
+  padding-bottom: 50px;
 }
 
 .chat-messages {
@@ -69,8 +70,12 @@
 .chat-input {
   position: fixed;
   bottom: 0;
+  right: 35;
   padding-bottom: 40px;
-  width: fit-content;
+  padding-right: 20px;
+  width: max-content;
+  z-index: 1;
+  background-color: white;
 }
 
 #message-form {

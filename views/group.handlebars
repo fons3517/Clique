@@ -1,29 +1,25 @@
+<a href="/group/new-post"> 
 <button
   type='submit'
   class='btn uk-button uk-button-primary uk-margin-bottom'
   id='create-new-post'
 >+ Create new post</button>
+</a>
 
-{{#if posts.length}}
+{{#if group.posts.length}}
   <section class='post-margin'>
     <legend class='uk-legend uk-margin-top uk-text-bold'>DASHBOARD</legend>
 
     <ul class='post-list uk-list'>
-      {{#each posts as |post|}}
+      {{#each group.posts as |post|}}
         <li class='uk-card uk-card-body uk-card-secondary'>
           {{>post-info post}}
-          <a
-            href='/dashboard/edit/{{post.id}}'
-            class='edit-link uk-button uk-button-danger'
-          >edit post</a>
         </li>
 
       {{/each}}
     </ul>
   </section>
 {{/if}}
-
-<script src='/js/create-post.js'></script>
 
 <div
   class='uk-card uk-box-shadow-hover-small uk-light uk-background-secondary uk-padding uk-card-body uk-width-1-6@s side-nav'

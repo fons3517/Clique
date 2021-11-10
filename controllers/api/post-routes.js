@@ -51,11 +51,12 @@ router.get('/:id', (req, res) => {
     ],
   })
     .then((dbPostData) => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
-        return;
-      }
-      res.json(dbPostData);
+      const post = dbPostData.get({ plain: true });
+      // pass to the template
+      res.render('single-post', {
+        post,
+        loggedIn: req.session.loggedIn
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -68,6 +69,7 @@ router.post('/', withAuth, (req, res) => {
     title: req.body.title,
     post_text: req.body.post_text,
     user_id: req.session.user_id,
+    group_id: req.session.current_group_id,
   })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {

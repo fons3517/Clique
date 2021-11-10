@@ -6,14 +6,13 @@ const exphbs = require('express-handlebars');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const helpers = require('./utils/helpers');
-const socketio = require('socket.io');
+const io = require('socket.io')(5346);
 const http = require('http');
 
 require('dotenv').config();
 
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
 const PORT = process.env.PORT || 3001;
 
 //setup session

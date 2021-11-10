@@ -53,6 +53,8 @@ const cliqueBot = 'cliqueBot';
 io.on('connection', (socket) => {
   console.log('NEW CONNECTION');
 
+  setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
+
   socket.emit('message', formatMessage(cliqueBot, 'Welcome!'));
 
   //broadcast when user connects

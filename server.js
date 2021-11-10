@@ -45,28 +45,27 @@ sequelize.sync({ force: false }).then(() => {
   server.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
 });
 
+const formatMessage = require('./utils/messages');
+const cliqueBot = 'cliqueBot';
 
-const users = {};
+io.on('connection', (socket) => {
+  console.log('NEW CONNECTION');
 
-io.on('connection', socket => {
-  console.log('New Socket Connection. ID: ' + socket.id); // logging new connection
-  socket.on('new-user', name => {
-    users[socket.id] = name;
-    socket.broadcast.emit('user-connected', name); // outputting 'user-connected' with name following
-  });
-  socket.on('chat-message', (message, room) => {
-    socket.to(room).emit('recieve-message', { message: message, name: users[socket.id] }); // attatching obj w/ users socket.id and message
-  });
-  socket.on('join-room', room => {
-    socket.join(room); //<============ May want to add authentication/check if user is in group
-  });
+  socket.emit('message', formatMessage(cliqueBot, 'Welcome!'));
+
+  //broadcast when user connects
+  socket.broadcast.emit(
+    'message',
+    formatMessage(cliqueBot, 'A user has joined the chat!')
+  );
+
+  //client disconnect
   socket.on('disconnect', () => {
-    socket.broadcast.emit('user-disconnected', users[socket.id]); // user-disconnected
-    delete users[socket.id]; // deleting users name from connection
+    io.emit('message', formatMessage(cliqueBot, 'A user has disconnected'));
+  });
+
+  // chat message listen
+  socket.on('chatMessage', (msg) => {
+    io.emit('message', formatMessage('test', msg));
   });
 });
-
-/* Scroll down to stay at bottom of chat box
-chatMessages.scrollTop = chatMessages.scrollHeight;
-*/
-

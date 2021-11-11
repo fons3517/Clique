@@ -6,7 +6,7 @@ const exphbs = require('express-handlebars');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const helpers = require('./utils/helpers');
-const io = require('socket.io')(5346);
+const socketio = require('socket.io');
 const http = require('http');
 const cookieParser = require('cookie-parser');
 
@@ -27,6 +27,8 @@ const sess = {
     db: sequelize,
   }),
 };
+
+const io = socketio(server);
 
 //handlebars initialization
 const hbs = exphbs.create({ helpers });

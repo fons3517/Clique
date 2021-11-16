@@ -25,11 +25,11 @@ Post.init(
         model: 'user',
         key: 'id',
       },
-    group_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'group',
-        key: 'id',
+      group_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'group',
+          key: 'id',
         }
       }
     },

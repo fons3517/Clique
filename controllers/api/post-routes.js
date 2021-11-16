@@ -4,6 +4,7 @@ const withAuth = require('../../utils/auth');
 
 // get all posts
 router.get('/', (req, res) => {
+  console.log('get Post route')
   Post.findAll({
     attributes: ['id', 'title', 'post_text', 'created_at'],
     order: [['created_at', 'DESC']],
@@ -22,7 +23,11 @@ router.get('/', (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbPostData) => {
+      // const postRecords = dbPostData.get({ plain: true });
+      console.log(dbPostData);
+      res.render('post', dbPostData);
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);

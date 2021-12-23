@@ -24,10 +24,10 @@ Full-stack web application deployed with Heroku using JAWS DB
 #### Media
 
 - [Clique](https://obscure-scrubland-68562.herokuapp.com/)
-- ![Clique Homepage](./public/images/CliqueHomepage.JPG)
-- ![Signup Page](/public/images/signupPage.JPG)
-- ![Create Group](/public/images/createGroup.JPG)
-- ![Group List](/public/images/groupList1.JPG)
+- ![Clique Homepage](public/images/CliqueHomepage.jpg)
+- ![Signup Page](public/images/signupPage.jpg)
+- ![Create Group](public/images/createGroup.jpg)
+- ![Group List](public/images/groupList1.jpg)
 
 ### Installation:
 

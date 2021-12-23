@@ -9,6 +9,7 @@ const helpers = require('./utils/helpers');
 const socketio = require('socket.io');
 const http = require('http');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 require('dotenv').config();
 
@@ -38,6 +39,7 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(compression());
 
 app.use(session(sess));
 

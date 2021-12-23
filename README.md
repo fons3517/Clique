@@ -23,11 +23,11 @@ Full-stack web application deployed with Heroku using JAWS DB
 
 #### Media
 
-[Clique](https://obscure-scrubland-68562.herokuapp.com/)
-![Clique Homepage](./public/images/CliqueHomepage.JPG)
-![Signup Page](./public/images/signupPage.JPG)
-![Create Group](./public/images/createGroup.JPG)
-![Group List](./public/images/groupList1.JPG)
+- [Clique](https://obscure-scrubland-68562.herokuapp.com/)
+- ![Clique Homepage](./public/images/CliqueHomepage.JPG)
+- ![Signup Page](/public/images/signupPage.JPG)
+- ![Create Group](/public/images/createGroup.JPG)
+- ![Group List](/public/images/groupList1.JPG)
 
 ### Installation:
 
@@ -56,11 +56,11 @@ MIT
 
 #### Developer_Profiles:
 
--[fons3517 Github Profile](https://github.com/fons3517)
+- [fons3517 Github Profile](https://github.com/fons3517)
 
--[baiterade Github Profile](https://github.com/baiterade)
+- [baiterade Github Profile](https://github.com/baiterade)
 
--[spaceboundbear Github Profile](https://github.com/spaceboundbear)
+- [spaceboundbear Github Profile](https://github.com/spaceboundbear)
 
 ##### Acknowledgements:
 

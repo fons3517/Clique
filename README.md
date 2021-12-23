@@ -4,7 +4,7 @@ CLIQUE
 
 ## Description:
 
-Full-stack web application deployed with Heroku using JAWS DB
+Full-stack web application implementing socket.io and deployed with Heroku using JAWS DB.
 
 ### Table_of_Contents:
 
